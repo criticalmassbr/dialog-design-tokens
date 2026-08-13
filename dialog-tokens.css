@@ -1,0 +1,99 @@
+/* ============================================================================
+   DIALOG DS — FOUNDATIONS (camada de produto)
+
+   FONTE DA VERDADE EM CÓDIGO. Todo projeto deste repositório consome daqui;
+   nenhum projeto redeclara valor de marca por conta própria.
+
+   Governança (ver tokens/README.md):
+   · foundations (este arquivo) → dono: Design
+   · componentes → dono: Tech (Storybook)
+
+   Valores cravados no handoff de 07/2026 (nada aqui está em aberto):
+   fonte Rubik · pesos 400/500/600 (sem 700) · marca #07751F · warning #EAB308 ·
+   radius 4/8/12/16/20/24 + pílula 9999 · spacing x1–x8 (4→80, base 8) ·
+   sombras x1–x4 sobre rgba(75,85,99,*).
+
+   Regra de ouro: componente NUNCA usa hex cravado. Sempre var(--token).
+   Dark mode NÃO está definido no DS — não invente valores aqui.
+   ========================================================================== */
+
+:root {
+  /* ---- superfícies e texto base ---- */
+  --background: #FFFFFF;
+  --foreground: #030712;
+  --card: #FFFFFF;
+  --card-foreground: #030712;
+  --popover: #FFFFFF;
+  --popover-foreground: #030712;
+
+  /* ---- marca (verde Dialog) ----
+     É o ÚNICO lugar onde a marca é declarada. Cliente white-label troca estes
+     cinco valores num seletor [data-brand="..."] e nada mais. */
+  --primary: #07751F;
+  --primary-foreground: #FFFFFF;
+  --primary-hover: #019420;
+  --primary-active: #085F1D;
+  --primary-subtle: #EDFFF0;
+
+  /* ---- superfícies neutras ----
+     FALSO-AMIGO do shadcn: "accent" aqui é superfície neutra de hover/seleção,
+     NÃO a marca. A marca vive em --primary. Não troque os dois. */
+  --secondary: #F3F4F6;
+  --secondary-foreground: #030712;
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
+  --accent: #F3F4F6;
+  --accent-foreground: #030712;
+
+  /* ---- bordas, inputs, foco ---- */
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #07751F;
+
+  /* ---- status ---- */
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --success: #16A34A; --success-foreground: #FFFFFF; --success-subtle: #F0FDF4;
+  --warning: #EAB308; --warning-foreground: #030712; --warning-subtle: #FEFCE8;
+  --info:    #2563EB; --info-foreground:    #FFFFFF; --info-subtle:    #EFF6FF;
+  --danger:  #DC2626; --danger-foreground:  #FFFFFF; --danger-subtle:  #FEF2F2;
+
+  /* ---- rampa neutra (Tailwind Gray) ---- */
+  --neutral-50:#F9FAFB;  --neutral-100:#F3F4F6; --neutral-200:#E5E7EB;
+  --neutral-300:#D1D5DB; --neutral-400:#9CA3AF; --neutral-500:#6B7280;
+  --neutral-600:#4B5563; --neutral-700:#374151; --neutral-800:#1F2937;
+  --neutral-900:#111827; --neutral-950:#030712;
+
+  /* ---- raio ---- */
+  --radius: 0.5rem;
+  --radius-x1: 4px; --radius-x2: 8px;  --radius-x3: 12px;
+  --radius-x4: 16px; --radius-x5: 20px; --radius-x6: 24px;
+  --radius-rounded: 9999px;      /* botão = pílula (regra do DS) */
+
+  /* ---- espaçamento ----
+     nota: 32px existe no primitivo do Figma mas não é exposto no semântico
+     (gap conhecido, registrado no handoff). */
+  --space-x1:4px;  --space-x2:8px;  --space-x3:12px; --space-x4:16px;
+  --space-x5:20px; --space-x6:24px; --space-x7:40px; --space-x8:80px;
+
+  /* ---- sombras ---- */
+  --shadow-x1: 0 4px 6px 0 rgba(75,85,99,0.10);
+  --shadow-x2: 0 8px 12px 0 rgba(75,85,99,0.08);
+  --shadow-x3: 0 16px 25px 0 rgba(75,85,99,0.08);
+  --shadow-x4: 0 32px 50px 0 rgba(75,85,99,0.16);
+
+  /* ---- tipografia ----
+     Pesos: 400 regular, 500 medium (o "strong" do DS), 600 semibold (exigido
+     pelo shadcn). NÃO usar 700. */
+  --font-sans: "Rubik", system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* escala tipográfica (responsiva no consumo; aqui os valores de desktop) */
+  --text-title: 2rem;      --text-title-line: 2.5rem;  --text-title-tracking: -0.0625rem;
+  --text-heading: 1.25rem; --text-heading-line: 2rem;
+  --text-body: 1rem;       --text-body-line: 1.5rem;
+  --text-small: 0.875rem;  --text-small-line: 1.25rem;
+  --text-caption: 0.75rem; --text-caption-line: 1rem;
+}

@@ -1,0 +1,95 @@
+/* ============================================================================
+   DIALOG DS — PONTE PARA TAILWIND v4
+
+   O Tailwind v4 gera utilitários a partir do que está declarado em `@theme`
+   (`--color-*` vira `bg-*`/`text-*`/`border-*`, `--font-*` vira `font-*`).
+   Este arquivo é só a PONTE: ele não define valor nenhum, apenas aponta os
+   nomes que o Tailwind espera para os tokens do DS.
+
+   Consequência prática, e é o ponto: não existe valor duplicado entre o DS e o
+   Tailwind, então não existe divergência possível. Trocar a marca é trocar
+   `--primary` em `dialog-tokens.css`.
+
+   Ordem de import obrigatória no projeto:
+
+     @import "tailwindcss";
+     @import "./dialog-tokens.css";      // valores do DS
+     @import "./dialog-marketing.css";   // só em LP/institucional
+     @import "./dialog-tailwind-v4.css"; // esta ponte
+
+   Projetos que NÃO usam Tailwind (o PWA em MUI, por exemplo) ignoram este
+   arquivo e leem os tokens direto.
+   ========================================================================== */
+
+@theme inline {
+  /* tipografia */
+  --font-sans: var(--font-sans);
+
+  /* superfícies e texto */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  /* marca */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-subtle: var(--primary-subtle);
+
+  /* neutras */
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* bordas e foco */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* status */
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+
+  /* rampa neutra */
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+  --color-neutral-950: var(--neutral-950);
+
+  /* raio */
+  --radius-x1: var(--radius-x1);
+  --radius-x2: var(--radius-x2);
+  --radius-x3: var(--radius-x3);
+  --radius-x4: var(--radius-x4);
+  --radius-x5: var(--radius-x5);
+  --radius-x6: var(--radius-x6);
+
+  /* sombras */
+  --shadow-x1: var(--shadow-x1);
+  --shadow-x2: var(--shadow-x2);
+  --shadow-x3: var(--shadow-x3);
+  --shadow-x4: var(--shadow-x4);
+
+  /* EXTENSÃO DE MARKETING — resolve para nada quando `dialog-marketing.css`
+     não foi importado, então o projeto de produto não ganha utilitário órfão. */
+  --color-ink: var(--ink);
+  --color-ink-light: var(--ink-light);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-border: var(--ink-border);
+  --color-ink-chip: var(--ink-chip);
+  --color-accent-neon: var(--accent-neon);
+}

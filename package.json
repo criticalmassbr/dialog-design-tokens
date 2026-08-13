@@ -1,0 +1,34 @@
+{
+  "name": "@dialog/design-tokens",
+  "version": "0.1.0",
+  "description": "Foundations do Dialog DS em código: cor, tipografia, espaçamento, raio e sombra. Fonte da verdade única para todo projeto novo.",
+  "license": "UNLICENSED",
+  "private": false,
+  "type": "module",
+  "files": [
+    "dialog-tokens.css",
+    "dialog-marketing.css",
+    "dialog-tailwind-v4.css",
+    "bin/check.mjs",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": "./dialog-tokens.css",
+    "./tokens.css": "./dialog-tokens.css",
+    "./marketing.css": "./dialog-marketing.css",
+    "./tailwind-v4.css": "./dialog-tailwind-v4.css",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dialog-tokens-check": "bin/check.mjs"
+  },
+  "scripts": {
+    "check": "node bin/check.mjs"
+  },
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "dialog"
+  ]
+}

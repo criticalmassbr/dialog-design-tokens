@@ -1,0 +1,46 @@
+/* ============================================================================
+   DIALOG DS — EXTENSÃO DE MARCA PARA SUPERFÍCIES DE MARKETING
+
+   POR QUE ESTA CAMADA EXISTE (decisão de 12/08, com experimento).
+   Aplicamos o DS puro sobre a LP de Segurança e medimos o resultado: o hero
+   institucional (verde escuro do Manual da Marca) caía para o quase-preto do
+   texto de produto (#030712), o acento neon do título perdia contraste e a
+   pílula de eyebrow desaparecia sobre o branco. O DS de PRODUTO simplesmente
+   não tem tokens para duas coisas que a comunicação precisa:
+
+     1. superfície institucional escura (seções full-bleed verdes);
+     2. acento neon de destaque.
+
+   Então a resposta não é "marketing tem outro DS" — é ESTA extensão: os
+   foundations continuam sendo os de `dialog-tokens.css` (fonte, primária,
+   neutros, raio, spacing, sombra) e aqui entram SÓ os papéis que faltavam.
+   São 6 tokens. Se um dia a comunicação pedir o sétimo, ele entra aqui e não
+   dentro do projeto.
+
+   ONDE PODE SER USADA: landing pages e páginas institucionais.
+   ONDE NÃO PODE: produto (PWA, Admin, Assist). Produto usa só a camada base.
+
+   Valores vêm do Manual da Marca (Pantones), por isso convivem com os do DS
+   sem competir: eles pintam SUPERFÍCIE e DESTAQUE, nunca componente.
+   ========================================================================== */
+
+:root {
+  /* superfície institucional escura — o "papel" das seções full-bleed */
+  --ink: #02380D;                        /* Pantone 627 C */
+  --ink-light: #045817;                  /* Pantone 357 C — degradês e camadas */
+  --ink-foreground: #E8FCE1;             /* texto sobre a superfície escura */
+  --ink-muted: #B7F5A0;                  /* texto de apoio sobre a escura */
+  --ink-border: rgba(255, 255, 255, 0.12);
+
+  /* chip/moldura de ícone sobre a superfície escura.
+     Nasceu de um erro na migração da LP (12/08): o chip translúcido do hero
+     virou `--primary-subtle`, que é opaco e quase branco — sobre o verde escuro
+     ele deixou de ser um realce sutil e passou a ser um quadrado claro. O papel
+     "chip sobre escuro" não existia em token nenhum, e alpha do branco cravado
+     no componente é o mesmo problema de outra forma. Então virou token. */
+  --ink-chip: rgba(255, 255, 255, 0.10);
+
+  /* acento neon — SÓ destaque tipográfico e detalhes sobre --ink.
+     Nunca como fundo de botão nem em texto pequeno: reprova contraste. */
+  --accent-neon: #0AEA3E;
+}
