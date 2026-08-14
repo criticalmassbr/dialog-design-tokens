@@ -17,6 +17,12 @@ repositório da organização.
 - `dialog-tailwind-v4.css` — ponte para utilitários do Tailwind v4.
 - `bin/check.mjs` — crivo que roda no projeto consumidor (`dialog-tokens-check`).
 
+### Corrigido
+- O crivo passou a pegar cor de marca em `rgb()/rgba()`, não só em hex. A LP
+  passava no check e mesmo assim servia o verde do Manual em produção: os
+  valores estavam escritos como `rgba(8,176,47,0.18)` dentro de gradientes e
+  sombras. Cinco arquivos da LP são acusados pela versão nova.
+
 ### Mudou em relação à pasta anterior
 - O crivo **viaja com o pacote**. Antes ele só enxergava projetos dentro do
   repositório de mocks; um projeto em outro repositório ficava sem verificação

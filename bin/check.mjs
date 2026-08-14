@@ -15,9 +15,9 @@
 
    O que ele verifica:
 
-     1. HEX SOLTO — o projeto declara cor de marca cravada em vez de usar o
-        token? Pega tanto os hexes do DS (sintoma de cópia manual) quanto os do
-        Manual da Marca (sintoma de âncora na fonte errada).
+     1. COR SOLTA — o projeto declara cor de marca cravada em vez de usar o
+        token? Pega os valores do DS (sintoma de cópia manual) e os do Manual da
+        Marca (sintoma de âncora na fonte errada), em hex E em rgb()/rgba().
      2. DERIVA — se o projeto mantém CÓPIA dos CSS (o caminho temporário, para
         quem ainda não consegue importar de node_modules), ela ainda bate com a
         do pacote instalado?
@@ -40,13 +40,31 @@ const CORRIGIR = process.argv.includes("--fix");
 
 const FONTES = ["dialog-tokens.css", "dialog-marketing.css", "dialog-tailwind-v4.css"];
 
-/** hexes que NÃO podem aparecer cravados em código de projeto.
- *  Os do DS indicam cópia manual em vez de token; os do Manual da Marca
+/** cores que NÃO podem aparecer cravadas em código de projeto.
+ *  As do DS indicam cópia manual em vez de token; as do Manual da Marca
  *  indicam que alguém ancorou na fonte errada (foi o caso da LP). */
 const PROIBIDOS = [
   "#07751f", "#019420", "#085f1d", "#edfff0",           // marca do DS
   "#08b02f", "#05751f", "#02380d", "#045817", "#0aea3e", // Manual da Marca
 ];
+
+/* HEX NÃO É A ÚNICA FORMA (12/08). A LP passou no crivo e mesmo assim serviu o
+   verde do Manual em produção: os valores estavam escritos em `rgba()`, dentro
+   de gradientes e sombras — `rgba(8,176,47,0.18)`, que é o #08B02F em outra
+   roupa. Buscar só a string do hex nunca encontraria.
+   (O hex com alpha, tipo `#08b02f2e`, já era pego: o de seis dígitos é
+   substring dele.)
+   Então a lista de hexes vira também uma lista de TRIPLETS, e o crivo aceita
+   qualquer espaçamento entre os números. */
+const rgbDoHex = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+const REGEX_RGB = PROIBIDOS.map((hex) => {
+  const [r, g, b] = rgbDoHex(hex);
+  return {
+    hex,
+    rgb: `rgb(${r}, ${g}, ${b})`,
+    re: new RegExp(`rgba?\\(\\s*${r}\\s*,\\s*${g}\\s*,\\s*${b}\\s*[,)]`, "i"),
+  };
+});
 
 const IGNORAR = new Set(["node_modules", ".next", ".git", "dist", "build", "out", ".vercel", "coverage"]);
 const EXTENSOES = /\.(tsx?|jsx?|css|scss|svelte|vue)$/;
@@ -70,18 +88,22 @@ function* arquivos(dir) {
   }
 }
 
-/* ---------- 1. hex de marca cravado no projeto ---------- */
-function hexSolto() {
+/* ---------- 1. cor de marca cravada no projeto ---------- */
+function corSolta() {
   for (const arquivo of arquivos(PROJETO)) {
     if (!EXTENSOES.test(arquivo)) continue;
     // o próprio arquivo de token (ou uma cópia dele) declara os valores: é o lugar certo
     if (FONTES.includes(path.basename(arquivo))) continue;
     const texto = fs.readFileSync(arquivo, "utf8").toLowerCase();
-    const achados = PROIBIDOS.filter((hex) => texto.includes(hex));
+    const achados = [
+      ...PROIBIDOS.filter((hex) => texto.includes(hex)),
+      ...REGEX_RGB.filter(({ re }) => re.test(texto)).map(({ hex, rgb }) => `${rgb} (= ${hex})`),
+    ];
     if (achados.length) {
       problemas.push(
-        `hex de marca cravado em ${path.relative(PROJETO, arquivo)}: ${achados.join(", ")}\n` +
-          `    use o token correspondente (ver README do @dialog/design-tokens)`
+        `cor de marca cravada em ${path.relative(PROJETO, arquivo)}: ${[...new Set(achados)].join(", ")}\n` +
+          `    use o token: var(--primary) ou color-mix(in srgb, var(--primary) N%, transparent)\n` +
+          `    para transparência (ver README do @dialog/design-tokens)`
       );
     }
   }
@@ -116,7 +138,7 @@ const cabecalho = (nome) =>
   `   Alteração de token é PR no repositório dialog-design-tokens. */\n`;
 
 /* ---------- saída ---------- */
-hexSolto();
+corSolta();
 deriva();
 
 const versao = JSON.parse(fs.readFileSync(path.join(PACOTE, "package.json"), "utf8")).version;
@@ -134,4 +156,4 @@ if (problemas.length) {
   process.exit(1);
 }
 
-console.log("DS ok: nenhum hex de marca cravado e nenhuma cópia divergente.");
+console.log("DS ok: nenhuma cor de marca cravada e nenhuma cópia divergente.");
