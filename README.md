@@ -80,7 +80,11 @@ Ele falha (exit 1) quando encontra:
 2. **Cópia divergente** dos CSS, para quem mantém cópia local.
    `npx dialog-tokens-check --fix` re-sincroniza.
 
-Coloque no CI do projeto e no `package.json`:
+Para virar automático, copie `.github/workflows/ds.yml` deste repositório para
+o projeto consumidor. Sem isso o crivo é um script que alguém precisa lembrar
+de rodar; com ele, divergência vira build vermelho no PR.
+
+E registre o atalho no `package.json`:
 
 ```json
 { "scripts": { "check:ds": "dialog-tokens-check" } }
