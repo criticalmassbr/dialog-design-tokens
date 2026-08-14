@@ -1,0 +1,28 @@
+# MODELO. Não roda aqui: copie para `.github/workflows/ds.yml` do PROJETO que
+# consome o pacote.
+#
+# Ele mora fora de `.github/workflows/` de propósito. Já esteve lá dentro e o
+# GitHub o executou contra este repositório, que não tem `package-lock.json`:
+# o `npm ci` quebrou em 6 segundos e a Org recebeu um e-mail de falha. O
+# Actions não distingue modelo de workflow ativo. Qualquer .yml naquela pasta
+# roda, então modelo não pode morar lá.
+#
+# Sem ele, o crivo é um script que alguém precisa lembrar de rodar. Com ele,
+# divergência de token vira build vermelho no PR, antes do merge. É onde a LP
+# de Segurança deveria ter sido pega.
+name: DS
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx dialog-tokens-check

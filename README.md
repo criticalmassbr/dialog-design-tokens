@@ -87,9 +87,13 @@ Ele falha (exit 1) quando encontra:
 2. **Cópia divergente** dos CSS, para quem mantém cópia local.
    `npx dialog-tokens-check --fix` re-sincroniza.
 
-Para virar automático, copie `.github/workflows/ds.yml` deste repositório para
-o projeto consumidor. Sem isso o crivo é um script que alguém precisa lembrar
-de rodar; com ele, divergência vira build vermelho no PR.
+Para virar automático, copie o `modelo-ds.yml` deste repositório para
+`.github/workflows/ds.yml` do projeto consumidor. Sem isso o crivo é um script
+que alguém precisa lembrar de rodar; com ele, divergência vira build vermelho
+no PR.
+
+O modelo fica na raiz, e não em `.github/workflows/`, porque o Actions não
+distingue modelo de workflow ativo: qualquer .yml naquela pasta é executado.
 
 E registre o atalho no `package.json`:
 
