@@ -30,6 +30,13 @@ tem versão, tem PR e tem histórico; cópia não tem nada disso.
 
 ## Como consumir
 
+**Projeto novo:** não faça nada disto na mão. Use o
+[`dialog-project-template`](https://github.com/criticalmassbr/dialog-project-template)
+pelo botão *Use this template*. Ele já vem com o pacote instalado, os imports
+na ordem certa, o crivo no CI e a regra para o editor de IA.
+
+**Projeto que já existe** ou que não parte do template, siga daqui.
+
 Sem registry privado montado, a instalação é direto do Git, com a versão
 fixada por tag:
 
