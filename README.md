@@ -34,7 +34,7 @@ Sem registry privado montado, a instalação é direto do Git, com a versão
 fixada por tag:
 
 ```bash
-npm i github:criticalmassbr/dialog-design-tokens#v0.1.0
+npm i github:criticalmassbr/dialog-design-tokens#v0.1.1
 ```
 
 Fixar a tag é deliberado: ninguém é atualizado sem querer, e atualizar token
@@ -71,9 +71,12 @@ npx dialog-tokens-check
 
 Ele falha (exit 1) quando encontra:
 
-1. **Hex de marca cravado** no código do projeto — tanto os valores do DS
-   (sintoma de cópia manual em vez de token) quanto os do Manual da Marca
-   (sintoma de âncora na fonte errada, que foi o caso da LP).
+1. **Cor de marca cravada** no código do projeto, em **hex ou em rgb()/rgba()**
+   — tanto os valores do DS (sintoma de cópia manual em vez de token) quanto os
+   do Manual da Marca (sintoma de âncora na fonte errada, que foi o caso da LP).
+   As duas formas importam: a LP passava no crivo antigo e mesmo assim servia o
+   verde do Manual, porque os valores estavam escritos como
+   `rgba(8,176,47,0.18)` dentro de gradientes e sombras.
 2. **Cópia divergente** dos CSS, para quem mantém cópia local.
    `npx dialog-tokens-check --fix` re-sincroniza.
 
