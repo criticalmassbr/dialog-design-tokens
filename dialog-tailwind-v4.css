@@ -92,4 +92,9 @@
   --color-ink-border: var(--ink-border);
   --color-ink-chip: var(--ink-chip);
   --color-accent-neon: var(--accent-neon);
+  /* luz e profundidade (27/08): superfície elevada, grade e halo neon */
+  --color-ink-elevated: var(--ink-elevated);
+  --color-ink-grid: var(--ink-grid);
+  --shadow-glow: var(--glow-neon);
+  --shadow-glow-strong: var(--glow-neon-strong);
 }

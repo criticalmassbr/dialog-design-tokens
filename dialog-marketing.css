@@ -43,4 +43,26 @@
   /* acento neon — SÓ destaque tipográfico e detalhes sobre --ink.
      Nunca como fundo de botão nem em texto pequeno: reprova contraste. */
   --accent-neon: #0AEA3E;
+
+  /* --------------------------------------------------------------------------
+     LUZ E PROFUNDIDADE (27/08, pedido do João Rego: LP mais "tech").
+     A referência dele usava um brilho ciano que NÃO existe no Manual da Marca;
+     a decisão foi entregar a mesma sensação de luz com o próprio neon sobre o
+     verde escuro — energia sem importar cor estrangeira. Três papéis novos: */
+
+  /* superfície ELEVADA sobre --ink: cards e painéis dentro de seção escura.
+     Um degrau entre --ink e --ink-light, para dar profundidade sem alpha
+     (alpha empilhado escurece diferente conforme o que há atrás). */
+  --ink-elevated: #03430F;
+
+  /* linha de grade/circuito sobre --ink — textura de fundo, nunca borda de
+     componente (borda de componente é --ink-border).
+     0.11 (27/08, Victor): a 0.06 a grade quase não se lia sobre a arte do
+     hero; é ela que carrega o ar técnico, então ganhou presença. */
+  --ink-grid: rgba(232, 252, 225, 0.11);
+
+  /* halo neon: box-shadow/filter de elementos "acesos" sobre --ink.
+     É efeito de luz, não cor de conteúdo — texto continua no --accent-neon. */
+  --glow-neon: 0 0 24px rgba(10, 234, 62, 0.28);
+  --glow-neon-strong: 0 0 42px rgba(10, 234, 62, 0.42);
 }

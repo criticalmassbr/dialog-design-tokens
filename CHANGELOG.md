@@ -3,6 +3,24 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) ·
 Versionamento: [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.2.0] — 2026-08-27
+
+Camada de luz e profundidade da extensão de marketing, nascida do pedido do
+João Rego de uma LP de Segurança mais "tech". A referência dele usava um brilho
+ciano que não existe no Manual da Marca; a resposta foi entregar a mesma
+sensação de luz com o próprio neon sobre o verde escuro.
+
+### Adicionado
+- `--ink-elevated` — superfície elevada sobre `--ink` (cards/painéis em seção
+  escura), opaca de propósito: alpha empilhado escurece diferente conforme o
+  que há atrás.
+- `--ink-grid` — linha de grade/circuito sobre `--ink` (textura de fundo;
+  borda de componente continua sendo `--ink-border`).
+- `--glow-neon` e `--glow-neon-strong` — halo neon para elementos "acesos"
+  sobre `--ink`; efeito de luz, não cor de conteúdo.
+- Ponte Tailwind correspondente: `bg-ink-elevated`, `--color-ink-grid`,
+  `shadow-glow` e `shadow-glow-strong`.
+
 ## [0.1.0] — 2026-08-12
 
 Primeira versão publicável. Extrai a camada de tokens que vivia como pasta em

@@ -1,6 +1,6 @@
 {
   "name": "@dialog/design-tokens",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Foundations do Dialog DS em código: cor, tipografia, espaçamento, raio e sombra. Fonte da verdade única para todo projeto novo.",
   "license": "UNLICENSED",
   "private": false,
