@@ -3,6 +3,26 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) ·
 Versionamento: [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.3.0] — 2026-09-30
+
+Alinhamento com os protótipos (Admin e app do colaborador), a partir do diff de
+foundations feito para a reunião do DS unificado.
+
+### Alterado
+- `--font-sans` passa a ser **DM Sans** (decisão do Victor em 25/09; era Rubik).
+  O pacote não carrega a fonte: cada projeto carrega a DM Sans (next/font ou
+  Google Fonts) e o token só a referencia.
+
+### Adicionado
+- `--page-max` (1680px) e `--content-max` (880px): largura única de página e
+  limite de formulários e leitura.
+
+### Sem mudança (registrado no diff)
+- `--border`/`--input` seguem `#E5E7EB`. O `#D1D5DB` do Admin é resto do
+  globals antigo e sai de lá.
+- A marca white-label continua sendo `--primary*`. Os `--assist-brand*` do
+  Admin existem porque o chrome do Admin ainda é azul; não viram foundation.
+
 ## [0.2.0] — 2026-08-27
 
 Camada de luz e profundidade da extensão de marketing, nascida do pedido do

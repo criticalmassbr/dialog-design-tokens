@@ -9,7 +9,7 @@
    · componentes → dono: Tech (Storybook)
 
    Valores cravados no handoff de 07/2026 (nada aqui está em aberto):
-   fonte Rubik · pesos 400/500/600 (sem 700) · marca #07751F · warning #EAB308 ·
+   fonte DM Sans (desde 25/09/2026; era Rubik) · pesos 400/500/600 (sem 700) · marca #07751F · warning #EAB308 ·
    radius 4/8/12/16/20/24 + pílula 9999 · spacing x1–x8 (4→80, base 8) ·
    sombras x1–x4 sobre rgba(75,85,99,*).
 
@@ -85,7 +85,7 @@
   /* ---- tipografia ----
      Pesos: 400 regular, 500 medium (o "strong" do DS), 600 semibold (exigido
      pelo shadcn). NÃO usar 700. */
-  --font-sans: "Rubik", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;  /* carregue a DM Sans no projeto (next/font ou Google Fonts) */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -96,4 +96,10 @@
   --text-body: 1rem;       --text-body-line: 1.5rem;
   --text-small: 0.875rem;  --text-small-line: 1.25rem;
   --text-caption: 0.75rem; --text-caption-line: 1rem;
+
+  /* ---- layout (0.3.0) ----
+     Largura única de página: todo módulo usa a mesma moldura, centralizada, para
+     nada pular ao navegar. Formulários e leitura se limitam por dentro. */
+  --page-max: 1680px;
+  --content-max: 880px;
 }
