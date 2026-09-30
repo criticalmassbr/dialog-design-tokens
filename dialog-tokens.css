@@ -46,8 +46,8 @@
   --accent-foreground: #030712;
 
   /* ---- bordas, inputs, foco ---- */
-  --border: #E5E7EB;
-  --input: #E5E7EB;
+  --border: #D1D5DB;  /* 0.3.1: a borda do Admin (neutral-300); era #E5E7EB */
+  --input: #D1D5DB;
   --ring: #07751F;
 
   /* ---- status ---- */

@@ -3,6 +3,12 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) ·
 Versionamento: [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.3.1] — 2026-09-30
+
+### Alterado
+- `--border` e `--input` passam a `#D1D5DB` (neutral-300), a borda que o Admin já
+  usava. Decisão do Victor sobre o diff: mais contraste nos cards e campos.
+
 ## [0.3.0] — 2026-09-30
 
 Alinhamento com os protótipos (Admin e app do colaborador), a partir do diff de
@@ -18,8 +24,6 @@ foundations feito para a reunião do DS unificado.
   limite de formulários e leitura.
 
 ### Sem mudança (registrado no diff)
-- `--border`/`--input` seguem `#E5E7EB`. O `#D1D5DB` do Admin é resto do
-  globals antigo e sai de lá.
 - A marca white-label continua sendo `--primary*`. Os `--assist-brand*` do
   Admin existem porque o chrome do Admin ainda é azul; não viram foundation.
 
