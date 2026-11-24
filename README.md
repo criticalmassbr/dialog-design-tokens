@@ -41,7 +41,7 @@ Sem registry privado montado, a instalação é direto do Git, com a versão
 fixada por tag:
 
 ```bash
-npm i github:criticalmassbr/dialog-design-tokens#v0.4.3
+npm i github:criticalmassbr/dialog-design-tokens#v0.4.4
 ```
 
 Fixar a tag é deliberado: ninguém é atualizado sem querer, e atualizar token

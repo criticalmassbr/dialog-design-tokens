@@ -65,6 +65,7 @@
   --neutral-tone: #4B5563; --neutral-tone-foreground: #FFFFFF; --neutral-subtle: #F3F4F6;
   /* tipo de step do construtor de Jornadas (camada 2 das cores: só no construtor, nunca para status) */
   --step-visualizar: #2563EB; --step-fazer: #EA580C; --step-receber: #7C3AED; --step-auto: #0D9488; --step-estrutura: #4B5563;
+  /* --ai-tone: OBSOLETO desde 24/11 (a IA segue a cor do Assist, --ai no Admin). Mantido só por compatibilidade */
   --ai-tone: #7C3AED;      --ai-tone-foreground: #FFFFFF;      --ai-tone-subtle: #F5F3FF;
 
   /* ---- rampa neutra (Tailwind Gray) ---- */
@@ -100,6 +101,12 @@
   /* espaço por papel (0.4.0). No celular o x5 (20) não entra: card 16, seção 24. */
   --space-card: var(--space-x5);     /* respiro interno de card de seção (desktop) */
   --space-card-mobile: var(--space-x4);
+  /* movimento (24/11): três durações e duas curvas */
+  --motion-fast: 150ms;  /* resposta ao toque: hover, foco, cor */
+  --motion-base: 280ms;  /* abrir e fechar: menu, folha, modal, sidebar */
+  --motion-slow: 600ms;  /* entrada e revelação ao rolar */
+  --ease-standard: cubic-bezier(.4, 0, .2, 1); /* mudança de estado */
+  --ease-out: cubic-bezier(.2, .8, .2, 1);     /* algo que entra */
   --space-32: 32px;                  /* entra na escala em 24/11 (Espaçamento v2): o vão de seção */
   --space-section: var(--space-32);  /* seção → seção (desktop) */
   --space-section-mobile: var(--space-x6); /* seção → seção no celular: 24 */

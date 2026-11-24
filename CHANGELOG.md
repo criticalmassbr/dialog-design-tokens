@@ -3,6 +3,15 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) ·
 Versionamento: [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.4.4] — 2026-11-24
+
+### Adicionado
+- Movimento: `--motion-fast` (150ms), `--motion-base` (280ms), `--motion-slow` (600ms), `--ease-standard` e `--ease-out`.
+
+### Obsoleto
+- `--ai-tone` e `--ai-tone-subtle`: a IA passa a seguir a cor do Assist (decisão do Victor em 24/11). Ficam por
+  compatibilidade e saem numa próxima versão.
+
 ## [0.4.3] — 2026-11-24
 
 ### Alterado
