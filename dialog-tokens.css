@@ -59,6 +59,11 @@
   --warning: #EAB308; --warning-foreground: #030712; --warning-subtle: #FEFCE8;
   --info:    #2563EB; --info-foreground:    #FFFFFF; --info-subtle:    #EFF6FF;
   --danger:  #DC2626; --danger-foreground:  #FFFFFF; --danger-subtle:  #FEF2F2;
+  /* 0.4.1: os seis tons de alerta (decisão de 24/11). Neutro = limite do sistema; IA = conteúdo gerado ou sugerido.
+     Alerta nunca usa --primary: o tema do cliente não pode mudar o significado. Texto e título do alerta saem
+     do próprio tom escurecido (color-mix com preto), sem token extra. */
+  --neutral-tone: #4B5563; --neutral-tone-foreground: #FFFFFF; --neutral-subtle: #F3F4F6;
+  --ai-tone: #7C3AED;      --ai-tone-foreground: #FFFFFF;      --ai-tone-subtle: #F5F3FF;
 
   /* ---- rampa neutra (Tailwind Gray) ---- */
   --neutral-50:#F9FAFB;  --neutral-100:#F3F4F6; --neutral-200:#E5E7EB;

@@ -55,6 +55,10 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-info: var(--info);
+  --color-neutral-tone: var(--neutral-tone);
+  --color-neutral-subtle: var(--neutral-subtle);
+  --color-ai-tone: var(--ai-tone);
+  --color-ai-tone-subtle: var(--ai-tone-subtle);
 
   /* rampa neutra */
   --color-neutral-50: var(--neutral-50);

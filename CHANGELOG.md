@@ -3,6 +3,15 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) ·
 Versionamento: [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.4.1] — 2026-11-24
+
+### Adicionado
+- Os seis tons de alerta (decisão do Victor em 24/11, prancha "DS · Alertas: quantos tons"): sucesso, atenção,
+  erro e informação, que já existiam, mais **Neutro** (`--neutral-tone`, `--neutral-subtle`: um limite do
+  sistema, sem urgência) e **IA** (`--ai-tone`, `--ai-tone-subtle`: conteúdo gerado ou sugerido pela IA).
+- O "Guia" (passo a passo na cor da marca) não virou tom: é uma ação, então segue a primária em botão ou chip.
+- Ponte Tailwind: `bg-neutral-subtle`, `text-ai-tone`, `bg-ai-tone-subtle`.
+
 ## [0.4.0] — 2026-11-24
 
 DS único: o Admin é o padrão e o app do colaborador (PWA) alinha 100% a ele.
