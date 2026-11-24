@@ -3,6 +3,18 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) ·
 Versionamento: [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.4.2] — 2026-11-24
+
+Espaçamento v2 (decisão do Victor em 24/11, prancha "DS · Espaçamento v2", opção A): o ar vem da hierarquia.
+
+### Alterado
+- `--space-section` passa de 24 para **32**: seção → seção, com ou sem card. Card a card (lista e grade) segue 16.
+
+### Adicionado
+- `--space-32` (32px) na escala, que pulava de 24 para 40. O 40 fica para faixas de apresentação (hero).
+- `--space-section-mobile` (24), `--space-page-header` (24: cabeçalho → abas ou conteúdo, e abas → conteúdo; 16 no
+  celular), `--space-crumb` (8: breadcrumb → título) e `--space-notice` (16: aviso → o que ele comenta; 12 no celular).
+
 ## [0.4.1] — 2026-11-24
 
 ### Adicionado

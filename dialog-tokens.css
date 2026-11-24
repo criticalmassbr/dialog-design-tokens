@@ -98,7 +98,12 @@
   /* espaço por papel (0.4.0). No celular o x5 (20) não entra: card 16, seção 24. */
   --space-card: var(--space-x5);     /* respiro interno de card de seção (desktop) */
   --space-card-mobile: var(--space-x4);
-  --space-section: var(--space-x6);  /* entre seções */
+  --space-32: 32px;                  /* entra na escala em 24/11 (Espaçamento v2): o vão de seção */
+  --space-section: var(--space-32);  /* seção → seção (desktop) */
+  --space-section-mobile: var(--space-x6); /* seção → seção no celular: 24 */
+  --space-page-header: var(--space-x6); /* cabeçalho → abas ou conteúdo, e abas → conteúdo (desktop); celular 16 */
+  --space-crumb: var(--space-x2);    /* breadcrumb → título */
+  --space-notice: var(--space-x4);   /* aviso → o que ele comenta (celular 12) */
   --space-row: var(--space-x3);      /* vertical de linha de lista/tabela */
 
   /* ---- sombras (primitivos) ----
