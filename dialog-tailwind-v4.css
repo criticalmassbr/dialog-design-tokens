@@ -76,12 +76,21 @@
   --radius-x4: var(--radius-x4);
   --radius-x5: var(--radius-x5);
   --radius-x6: var(--radius-x6);
+  --radius-field: var(--radius-field);
+  --radius-card: var(--radius-card);
+  --radius-panel: var(--radius-panel);
+  --radius-pill: var(--radius-pill);
 
   /* sombras */
   --shadow-x1: var(--shadow-x1);
   --shadow-x2: var(--shadow-x2);
   --shadow-x3: var(--shadow-x3);
   --shadow-x4: var(--shadow-x4);
+  --shadow-card: var(--shadow-card);
+  --shadow-hover: var(--shadow-hover);
+  --shadow-overlay: var(--shadow-overlay);
+  --color-divider: var(--divider);
+  --color-border-hover: var(--border-hover);
 
   /* EXTENSÃO DE MARKETING — resolve para nada quando `dialog-marketing.css`
      não foi importado, então o projeto de produto não ganha utilitário órfão. */

@@ -12,6 +12,8 @@
    fonte DM Sans (desde 25/09/2026; era Rubik) · pesos 400/500/600 (sem 700) · marca #07751F · warning #EAB308 ·
    radius 4/8/12/16/20/24 + pílula 9999 · spacing x1–x8 (4→80, base 8) ·
    sombras x1–x4 sobre rgba(75,85,99,*).
+   0.4.0 (24/11/2026): DS único, Admin como padrão; papéis de elevação, raio,
+   controle e espaço. Componente usa o PAPEL, não o primitivo.
 
    Regra de ouro: componente NUNCA usa hex cravado. Sempre var(--token).
    Dark mode NÃO está definido no DS — não invente valores aqui.
@@ -31,7 +33,7 @@
      cinco valores num seletor [data-brand="..."] e nada mais. */
   --primary: #07751F;
   --primary-foreground: #FFFFFF;
-  --primary-hover: #019420;
+  --primary-hover: color-mix(in srgb, var(--primary) 86%, white);  /* 0.4.0: derivado da marca (era #019420); cliente white-label não precisa declarar */
   --primary-active: #085F1D;
   --primary-subtle: #EDFFF0;
 
@@ -70,17 +72,53 @@
   --radius-x4: 16px; --radius-x5: 20px; --radius-x6: 24px;
   --radius-rounded: 9999px;      /* botão = pílula (regra do DS) */
 
+  /* raio por papel (0.4.0). Só estes três + pílula; 10/14/18 saem. */
+  --radius-field: var(--radius-x3);  /* 12 · campo, aviso, caixa de tabela */
+  --radius-card: var(--radius-x4);   /* 16 · card de item, lista de opções, vazio */
+  --radius-panel: var(--radius-x5);  /* 20 · card de seção, painel */
+  --radius-pill: var(--radius-rounded); /* botão, chip, selo */
+
+  /* ---- régua de controles (0.4.0) ----
+     Botão com texto: 32 ou 40, nunca outra altura. Chip nunca maior que o botão. */
+  --control-sm: 32px;  /* botão compacto, filtro/busca de barra, chip, alternador */
+  --control-md: 36px;  /* campo de formulário */
+  --control-lg: 40px;  /* botão principal de página/modal */
+
   /* ---- espaçamento ----
      nota: 32px existe no primitivo do Figma mas não é exposto no semântico
      (gap conhecido, registrado no handoff). */
   --space-x1:4px;  --space-x2:8px;  --space-x3:12px; --space-x4:16px;
   --space-x5:20px; --space-x6:24px; --space-x7:40px; --space-x8:80px;
 
-  /* ---- sombras ---- */
+  /* espaço por papel (0.4.0). No celular o x5 (20) não entra: card 16, seção 24. */
+  --space-card: var(--space-x5);     /* respiro interno de card de seção (desktop) */
+  --space-card-mobile: var(--space-x4);
+  --space-section: var(--space-x6);  /* entre seções */
+  --space-row: var(--space-x3);      /* vertical de linha de lista/tabela */
+
+  /* ---- sombras (primitivos) ----
+     0.4.0: componente NÃO usa x1–x4 direto; usa os papéis de elevação abaixo. */
   --shadow-x1: 0 4px 6px 0 rgba(75,85,99,0.10);
   --shadow-x2: 0 8px 12px 0 rgba(75,85,99,0.08);
   --shadow-x3: 0 16px 25px 0 rgba(75,85,99,0.08);
   --shadow-x4: 0 32px 50px 0 rgba(75,85,99,0.16);
+
+  /* ---- elevação (0.4.0, DS único: Admin é o padrão, PWA alinha) ----
+     Card parado não tem sombra: o destaque vem da borda e do painel atrás.
+     Sombra só em dois casos: hover de card CLICÁVEL e o que FLUTUA (menu,
+     popover, modal, faixa fixa). Card selecionado/aberto não tem sombra nem
+     hover: o estado é a borda cheia e o tom. */
+  --shadow-card: none;
+  --shadow-hover: 0 4px 16px color-mix(in srgb, var(--primary) 12%, transparent);
+  --border-hover: color-mix(in srgb, var(--primary) 55%, var(--border));
+  --shadow-overlay: var(--shadow-x3);
+
+  /* ---- contornos (0.4.0) ----
+     Sempre com border, nunca box-shadow inset: no zoom cada mecanismo
+     arredonda diferente. Ênfase SUBSTITUI o contorno, nunca soma. */
+  --divider: #E5E7EB;           /* = neutral-200; linha entre itens */
+  --border-width: 1px;          /* contorno de card e campo */
+  --border-width-emphasis: 1.5px; /* card aberto/selecionado, vazio tracejado */
 
   /* ---- tipografia ----
      Pesos: 400 regular, 500 medium (o "strong" do DS), 600 semibold (exigido
@@ -96,6 +134,7 @@
   --text-body: 1rem;       --text-body-line: 1.5rem;
   --text-small: 0.875rem;  --text-small-line: 1.25rem;
   --text-caption: 0.75rem; --text-caption-line: 1rem;
+  --text-card-title: 1rem;  /* 0.4.0: título de card e seção = 16/600 em todo produto */
 
   /* ---- layout (0.3.0) ----
      Largura única de página: todo módulo usa a mesma moldura, centralizada, para

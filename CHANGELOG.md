@@ -3,6 +3,36 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) ·
 Versionamento: [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.4.0] — 2026-11-24
+
+DS único: o Admin é o padrão e o app do colaborador (PWA) alinha 100% a ele.
+Decisão do Victor em 23/11, depois do teste sem sombra no PWA.
+
+### Alterado
+- `--primary-hover` passa a ser derivado da marca:
+  `color-mix(in srgb, var(--primary) 86%, white)` (era `#019420`). O cliente
+  white-label troca só `--primary` e o hover acompanha. Atenção: declare a
+  marca no mesmo elemento onde os tokens vivem (`:root`/`html`), senão o hover
+  herda o valor calculado com o verde.
+
+### Adicionado
+- Elevação por papel: `--shadow-card` (none), `--shadow-hover` (só card
+  clicável), `--border-hover`, `--shadow-overlay` (menu, modal, faixa fixa).
+  Card selecionado/aberto não tem sombra.
+- Contornos: `--divider`, `--border-width` (1px), `--border-width-emphasis` (1.5px).
+- Raio por papel: `--radius-field` 12, `--radius-card` 16, `--radius-panel` 20,
+  `--radius-pill`.
+- Régua de controles: `--control-sm` 32, `--control-md` 36, `--control-lg` 40.
+- Espaço por papel: `--space-card` 20, `--space-card-mobile` 16,
+  `--space-section` 24, `--space-row` 12.
+- `--text-card-title` (16px, peso 600).
+- Ponte Tailwind: `rounded-field/card/panel/pill`, `shadow-card/hover/overlay`,
+  `border-divider`, `border-border-hover`.
+
+### Sem mudança
+- Primitivos x1–x4 de sombra, raio e espaço continuam; componentes passam a usar
+  os papéis.
+
 ## [0.3.1] — 2026-09-30
 
 ### Alterado
