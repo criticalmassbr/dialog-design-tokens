@@ -54,6 +54,11 @@
   --color-destructive: var(--destructive);
   --color-success: var(--success);
   --color-warning: var(--warning);
+  --color-step-visualizar: var(--step-visualizar);
+  --color-step-fazer: var(--step-fazer);
+  --color-step-receber: var(--step-receber);
+  --color-step-auto: var(--step-auto);
+  --color-step-estrutura: var(--step-estrutura);
   --color-info: var(--info);
   --color-neutral-tone: var(--neutral-tone);
   --color-neutral-subtle: var(--neutral-subtle);

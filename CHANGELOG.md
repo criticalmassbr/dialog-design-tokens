@@ -3,6 +3,16 @@
 Formato: [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) ·
 Versionamento: [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.4.3] — 2026-11-24
+
+### Alterado
+- `--warning` passa de #EAB308 para **#CA8A04**: o amarelo claro não tinha contraste como ícone e texto sobre o fundo
+  tingido, e o alerta de atenção já usava #CA8A04 à parte. Agora é um token só (decisão do Victor em 24/11).
+
+### Adicionado
+- Cores de tipo de step do construtor de Jornadas: `--step-visualizar`, `--step-fazer`, `--step-receber`,
+  `--step-auto` e `--step-estrutura` (camada 2 das cores: só no construtor, nunca para status).
+
 ## [0.4.2] — 2026-11-24
 
 Espaçamento v2 (decisão do Victor em 24/11, prancha "DS · Espaçamento v2", opção A): o ar vem da hierarquia.

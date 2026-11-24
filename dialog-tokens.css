@@ -56,13 +56,15 @@
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
   --success: #16A34A; --success-foreground: #FFFFFF; --success-subtle: #F0FDF4;
-  --warning: #EAB308; --warning-foreground: #030712; --warning-subtle: #FEFCE8;
+  --warning: #CA8A04; --warning-foreground: #030712; --warning-subtle: #FEFCE8;
   --info:    #2563EB; --info-foreground:    #FFFFFF; --info-subtle:    #EFF6FF;
   --danger:  #DC2626; --danger-foreground:  #FFFFFF; --danger-subtle:  #FEF2F2;
   /* 0.4.1: os seis tons de alerta (decisão de 24/11). Neutro = limite do sistema; IA = conteúdo gerado ou sugerido.
      Alerta nunca usa --primary: o tema do cliente não pode mudar o significado. Texto e título do alerta saem
      do próprio tom escurecido (color-mix com preto), sem token extra. */
   --neutral-tone: #4B5563; --neutral-tone-foreground: #FFFFFF; --neutral-subtle: #F3F4F6;
+  /* tipo de step do construtor de Jornadas (camada 2 das cores: só no construtor, nunca para status) */
+  --step-visualizar: #2563EB; --step-fazer: #EA580C; --step-receber: #7C3AED; --step-auto: #0D9488; --step-estrutura: #4B5563;
   --ai-tone: #7C3AED;      --ai-tone-foreground: #FFFFFF;      --ai-tone-subtle: #F5F3FF;
 
   /* ---- rampa neutra (Tailwind Gray) ---- */
